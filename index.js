@@ -3,6 +3,9 @@ const app = express()
 const port = 5000
 
 const bodyParser=require('body-parser');
+
+const config = require('./config/key');
+
 const {User} = require("./models/User");
 
 //application/x-www-form-urlencoded
@@ -12,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://Muna:abcd1234@boilerplate.ioepm.mongodb.net/test?retryWrites=true&w=majority',{
+mongoose.connect(config.mongoURI,{
     useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:false
     }).then(()=>console.log('MongoDB Connected...'))
     .catch(err => console.log(err))
@@ -21,7 +24,7 @@ mongoose.connect('mongodb+srv://Muna:abcd1234@boilerplate.ioepm.mongodb.net/test
 
 
 
-app.get('/', (req, res) => res.send('Hello, world 안녕, 세상아'))
+app.get('/', (req, res) => res.send('Hello, world 안녕, 세상아;;;'))
 
 app.post('/register',(req,res)=>{
     //회원가입할때 필요한 정보들을 client에서 가져오면
