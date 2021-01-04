@@ -22,8 +22,6 @@ mongoose.connect(config.mongoURI,{
 
 
 
-
-
 app.get('/', (req, res) => res.send('Hello, world 안녕, 세상아;;;'))
 
 app.post('/register',(req,res)=>{
